@@ -1,7 +1,10 @@
-import React from 'react'
+import React from 'react';
+import Navbar from '../Components/Navbar.js';
 
 function TopbarContainer() {
-  return <div></div>
+  return <div>
+    <Navbar />
+  </div>
 }
 
 export {TopbarContainer};
