@@ -3,12 +3,12 @@ import { FaSpotify } from "react-icons/fa";
 
 function Logo() {
   return (
-    <div className="logo" style={{display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "stretch",
+    <div className="logo" style={{display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center",
         alignContent: "stretch"}}>
             <i style={{fontSize: "30px", color: "#fff"}}>
               <FaSpotify />
             </i>
-            <h2 style={{marginLeft: "0.75em", fontSize: "22px", color: "#fff"}}>Spotify</h2>
+            <h2 style={{marginLeft: "0.5em", fontSize: "22px", color: "#fff"}}>Spotify</h2>
           </div>
       )
 }
