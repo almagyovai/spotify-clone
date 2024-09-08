@@ -17,7 +17,7 @@ html {
 
 *::-webkit-scrollbar {
   display: none;
-} /* scrollbars neafisate, in general */
+}
 
 .App {
   width: 100%;
@@ -49,9 +49,22 @@ html {
   height: 100%;
   min-height: 100vh;
   margin: 10px 0 10px 0;
-  padding: 20px 30px;
+  padding: 20px 15px;
   border-radius: 0 10px 0 10px;
   background-color: #333333;
   overflow: hidden;
   transition: all 0.3s ease;
 }
+
+/* Modal Button States */
+
+.modal-buttons{
+  margin: 0; 
+  padding: 10px 10px;
+  border-radius: 5px;
+}
+
+.modal-buttons:hover{
+  background-color: #999999;
+}
+
