@@ -1,16 +1,30 @@
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
 import { FaSpotify } from "react-icons/fa";
 
 function Logo() {
   return (
-    <div className="logo" style={{display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center",
-        alignContent: "stretch"}}>
-            <i style={{fontSize: "30px", color: "#fff"}}>
-              <FaSpotify />
-            </i>
-            <h2 style={{marginLeft: "0.5em", fontSize: "22px", color: "#fff"}}>Spotify</h2>
-          </div>
-      )
+    <div
+      className="logo"
+    >
+              <Link to="/HomePage" style={{
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        alignContent: "stretch",
+        gap: "10px",
+        textDecoration: "none",
+      }}
+>
+
+      <i style={{ fontSize: "32px", color: "#fff" }}>
+        <FaSpotify />
+      </i>
+      <h2 style={{ fontSize: "22px", color: "#fff" }}>Spotify</h2>
+      </Link>
+    </div>
+  );
 }
 
 export default Logo;
