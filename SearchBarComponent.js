@@ -21,9 +21,23 @@ const StyledInput = styled.input`
 
 function SearchBarComponent({ isHomeActive, handleHomeClick }) {
   return (
-    <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", gap: "10px" }}>
-      <div style={{ backgroundColor: "#666666", padding: "5px 9px 0 9px", borderRadius: "50px", margin: "0" }}>
-        <Link to="/HomePage">
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "center",
+        gap: "10px",
+      }}
+    >
+      <div
+        style={{
+          backgroundColor: "#666666",
+          padding: "5px 9px 0 9px",
+          borderRadius: "50px",
+          margin: "0",
+        }}
+      >
+        <Link to="/">
           <i
             onClick={handleHomeClick}
             style={{ fontSize: "34px", color: "#fff", cursor: "pointer" }}
@@ -48,10 +62,16 @@ function SearchBarComponent({ isHomeActive, handleHomeClick }) {
           gap: "5px",
         }}
       >
-        <i style={{ fontSize: "30px", color: "#fff", padding: "5px 0px 0 8px" }}>
+        <i
+          style={{ fontSize: "30px", color: "#fff", padding: "5px 0px 0 8px" }}
+        >
           <FiSearch />
         </i>
-        <StyledInput type="text" autoComplete="on" placeholder="What do you want to play?" />
+        <StyledInput
+          type="text"
+          autoComplete="on"
+          placeholder="What do you want to play?"
+        />
       </div>
     </div>
   );

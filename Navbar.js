@@ -1,46 +1,55 @@
-import React, { useState } from "react";
-import Logo from "../Components/Logo.js";
-import SearchBarComponent from "./SearchBarComponent.js";
-import MyAccountComponents from "./MyAccountComponents.js";
-import Modal from "./Modal.js";
+import React, { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import styled from "styled-components";
+import Logo from "../Components/Logo";
+import SearchBarComponent from "./SearchBarComponent";
+import MyAccountComponents from "./MyAccountComponents";
+import Modal from "./Modal";
 
-const navbarContainer = {
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  backgroundColor: "#333333",
-  width: "100%",
-  padding: "5px 0px 0px 0px",
-  position: "relative",
-  zIndex: "1",
-};
+const NavbarContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #333333;
+  width: 100%;
+  padding: 5px 0px 0px 0px;
+  position: relative;
+  z-index: 1;
+`;
 
-const navbar = {
-  display: "flex",
-  flexDirection: "row",
-  justifyContent: "space-between",
-  alignItems: "center",
-  gap: "370px",
-};
+const Navbar = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 370px;
+`;
 
-function Navbar() {
+function NavbarComponent() {
   const [isModalOpen, setModalOpen] = useState(false);
-  const [isHomeActive, setHomeActive] = useState(true);
+  const [isHomeActive, setHomeActive] = useState(false);
   const [isNotificationIconActive, setNotificationIconActive] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const path = location.pathname;
+    setHomeActive(path === "/");
+    setNotificationIconActive(path === "/NotificationPage");
+  }, [location.pathname]);
 
   const handleHomeClick = () => {
-    setHomeActive(true);
-    setNotificationIconActive(false);
+    navigate("/");
   };
 
   const handleNotificationIconClick = () => {
-    setNotificationIconActive(true);
-    setHomeActive(false);
+    navigate("/NotificationPage");
+    setNotificationIconActive(true); // Ensures notification icon is active
   };
 
   return (
-    <div style={navbarContainer}>
-      <div style={navbar}>
+    <NavbarContainer>
+      <Navbar>
         <Logo />
         <SearchBarComponent 
           isHomeActive={isHomeActive} 
@@ -63,9 +72,9 @@ function Navbar() {
             </div>
           </Modal>
         )}
-      </div>
-    </div>
+      </Navbar>
+    </NavbarContainer>
   );
 }
 
-export default Navbar;
+export default NavbarComponent;
