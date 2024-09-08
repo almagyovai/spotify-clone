@@ -1,44 +1,38 @@
-import React, { useState } from "react";
-import { IoNotificationsOutline } from "react-icons/io5";
+import React from "react";
+import { useLocation } from "react-router-dom";
+import { IoNotificationsOutline, IoNotifications } from "react-icons/io5";
 import Pfp from "../Assets/Images/default-pfp.jpg";
-import Modal from "../Components/Modal.js";
 
 const profilePicture = {
-  width: "11%",
+  width: "50px",
   clipPath: "circle(50% at 50% 50%)",
 };
 
-const buttonWrapper = {
-  position: "relative",
-  zIndex: "1",
-};
+function MyAccountComponents({ onOpenModal, onNotificationIconClick, isNotificationIconActive }) {
+  const location = useLocation();
 
-function MyAccountComponents() {
-  const [isOpen, SetisOpen] = useState(false);
+  const handleNotificationIconClick = () => {
+    onNotificationIconClick();
+    console.log("Current location:", location.pathname);
+  };
+
   return (
-    <div
-      className="MyAccount"
-      style={{ display: "flex", justifyContent: "end", gap: "25px" }}
-    >
-      <div className="button-wraper">
-        <button
-          onClick={() => SetisOpen(true)}
-          style={{
-            position: "relative",
-            fontSize: "30px",
-            backgroundColor: "#666666",
-            color: "#fff",
-            border: "none",
-            boxShadow: "none",
-            padding: "13px 4px 0 0",
-            margin: "0",
-          }}
-        >
-          <IoNotificationsOutline />
-        </button>
+    <div className="MyAccount" style={{ display: "flex", alignItems: "center", justifyContent: "flex-end", gap: "25px" }}>
+      <div
+        onClick={handleNotificationIconClick}
+        style={{
+          fontSize: "34px",
+          color: "#fff",
+          cursor: "pointer",
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
+        {isNotificationIconActive ? <IoNotifications /> : <IoNotificationsOutline />}
       </div>
-      <Modal open={isOpen}>Fancy Modal</Modal>
-      <img src={Pfp} alt="profile-picture" style={profilePicture} />
+      <button onClick={onOpenModal} style={{ fontSize: "36px", backgroundColor: "transparent", color: "#fff", border: "none", cursor: "pointer" }}>
+        <img src={Pfp} alt="profile-picture" style={profilePicture} />
+      </button>
     </div>
   );
 }
