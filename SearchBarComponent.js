@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
 import { GoHome, GoHomeFill } from "react-icons/go";
 import styled from "styled-components";
@@ -20,6 +20,10 @@ const StyledInput = styled.input`
 `;
 
 function SearchBarComponent({ isHomeActive, handleHomeClick }) {
+  const location = useLocation();
+  const isOnSearchPage = location.pathname === "/search";
+  const searchPageUrl = "/search"; // URL to the search page
+
   return (
     <div
       style={{
@@ -60,6 +64,7 @@ function SearchBarComponent({ isHomeActive, handleHomeClick }) {
           borderRadius: "50px",
           overflow: "hidden",
           gap: "5px",
+          position: "relative", // Ensure the link is positioned correctly
         }}
       >
         <i
@@ -67,11 +72,16 @@ function SearchBarComponent({ isHomeActive, handleHomeClick }) {
         >
           <FiSearch />
         </i>
-        <StyledInput
-          type="text"
-          autoComplete="on"
-          placeholder="What do you want to play?"
-        />
+        {!isOnSearchPage && (
+          <Link
+          to={searchPageUrl}>
+          <StyledInput
+            type="text"
+            autoComplete="on"
+            placeholder={isOnSearchPage ? "What do you want to play?" : "Search for something..."}
+          />
+          </Link>
+        )}
       </div>
     </div>
   );
