@@ -10,7 +10,7 @@ function App() {
   return (
   <BrowserRouter>
   <Routes>
-    <Route path="/" element={<HomePage />} />
+    <Route path="/HomePage" element={<HomePage />} />
     <Route path="/NotificationPage" element={<NotificationPage />} />
     <Route path="/*" element={<NotFound />} />
   </Routes>
