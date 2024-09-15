@@ -42,6 +42,18 @@ html {
   z-index: -1;
 }
 
+/* Modal Button States */
+
+.modal-buttons{
+  margin: 0; 
+  padding: 10px 10px;
+  border-radius: 5px;
+}
+
+.modal-buttons:hover{
+  background-color: #999999;
+}
+
 /* Left Menu Container */
 
 .leftMenu{
@@ -56,15 +68,7 @@ html {
   transition: all 0.3s ease;
 }
 
-/* Modal Button States */
-
-.modal-buttons{
-  margin: 0; 
-  padding: 10px 10px;
-  border-radius: 5px;
+.scrollable-part{
+  height: 80vh;
+  overflow-y: auto;
 }
-
-.modal-buttons:hover{
-  background-color: #999999;
-}
-
