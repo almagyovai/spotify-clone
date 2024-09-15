@@ -44,7 +44,7 @@ function NavbarComponent() {
 
   const handleNotificationIconClick = () => {
     navigate("/NotificationPage");
-    setNotificationIconActive(true); // Ensures notification icon is active
+    setNotificationIconActive(true);
   };
 
   return (
@@ -63,10 +63,10 @@ function NavbarComponent() {
         {isModalOpen && (
           <Modal open={isModalOpen} onClose={() => setModalOpen(false)}>
             <div>
-              <p style={{ margin: "0", padding: "10px 0" }}>Account</p>
-              <p style={{ margin: "0", padding: "10px 0" }}>Profile</p>
-              <p style={{ margin: "0", padding: "10px 0" }}>Settings</p>
-              <p style={{ margin: "0", padding: "10px 0", borderTop: "1px solid #fff" }}>
+              <p className="modal-buttons">Account</p>
+              <p className="modal-buttons">Profile</p>
+              <p className="modal-buttons">Settings</p>
+              <p className="modal-buttons" style={{ borderTop: "1px solid #fff" }}>
                 Logout
               </p>
             </div>
